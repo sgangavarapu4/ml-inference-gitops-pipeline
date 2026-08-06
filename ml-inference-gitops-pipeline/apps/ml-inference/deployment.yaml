@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-inference-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ml-api
+  template:
+    metadata:
+      labels:
+        app: ml-api
+    spec:
+      tolerations:
+      - key: "dedicated"
+        operator: "Equal"
+        value: "ml-inference"
+        effect: "NoSchedule"
+      containers:
+      - name: api-container
+        image: nginx
+        resources:
+          requests:
+            cpu: "250m"       # 0.25 CPU cores guaranteed
+            memory: "256Mi"   # 256 MB RAM guaranteed
+          limits:
+            cpu: "500m"       # Throttled above 0.5 CPU cores
+            memory: "512Mi"   # OOMKilled if exceeding 512 MB

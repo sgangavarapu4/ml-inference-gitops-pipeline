@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ha-inference-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ha-inference
+  template:
+    metadata:
+      labels:
+        app: ha-inference
+    spec:
+      tolerations:
+      - key: "dedicated"
+        operator: "Equal"
+        value: "ml-inference"
+        effect: "NoSchedule"
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - ha-inference
+            topologyKey: "kubernetes.io/hostname"
+      containers:
+      - name: inference-app
+        image: nginx
