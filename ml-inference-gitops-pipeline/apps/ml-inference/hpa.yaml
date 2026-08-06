@@ -1,7 +1,7 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
- name: inferance-autoscaler
+ name: ml-inference-api
  namespace: default
 spec:
  scaleTargetRef:
