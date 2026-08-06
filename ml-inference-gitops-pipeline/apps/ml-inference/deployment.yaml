@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: ml-inference-api
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: ml-api

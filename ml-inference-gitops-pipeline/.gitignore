@@ -1,0 +1,14 @@
+# VS Code Server & Tooling
+.vscode-server/
+.vscode/
+
+# Local Binaries & Tools
+kubectl
+kind
+helm
+
+# OS / Linux temp files
+*.so
+*.node
+.DS_Store
+*.log
