@@ -6,7 +6,9 @@ metadata:
   labels:
     app: gpu-inference-api
 spec:
-  replicas: 1
+  replicas: 2
+  strategy:
+   type: Recreate
   selector:
     matchLabels:
       app: gpu-inference-api
