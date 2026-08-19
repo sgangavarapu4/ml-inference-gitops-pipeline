@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ml-inference-api
+  name: gpu-inference-api
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
