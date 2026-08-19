@@ -9,8 +9,8 @@ spec:
   project: default
   source:
     chart: dcgm-exporter
-    repoURL: https://nvidia.github.io/dcgm-exporter/helm-charts
-    targetRevision: 3.3.*
+    repoURL: 'https://nvidia.github.io/dcgm-exporter/helm-charts'
+    targetRevision: '4.*'
     helm:
       values: |
         nodeSelector:
@@ -31,7 +31,7 @@ spec:
             hostPath:
               path: /dev/dxg
   destination:
-    server: https://kubernetes.default.svc
+    server: 'https://kubernetes.default.svc'
     namespace: kube-system
   syncPolicy:
     automated:
