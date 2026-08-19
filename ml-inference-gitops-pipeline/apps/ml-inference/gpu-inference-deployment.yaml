@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ml-inference-api
+  name: gpu-inference-api
   namespace: default
   labels:
-    app: ml-inference-api
+    app: gpu-inference-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ml-inference-api
+      app: gpu-inference-api
   template:
     metadata:
       labels:
-        app: ml-inference-api
+        app: gpu-inference-api
     spec:
       nodeSelector:
         kubernetes.io/hostname: mlops-labs-worker2
@@ -81,4 +81,4 @@ spec:
   - port: 8000
     targetPort: 8000
   selector:
-    app: ml-inference-api
+    app: gpu-inference-api
