@@ -21,7 +21,7 @@ spec:
         kubernetes.io/hostname: mlops-labs-worker2
       containers:
       - name: api
-        image: pytorch/pytorch:2.6.0-cuda12.6-cudnn9-runtime
+        image: ghcr.io/sgangavarapu4/gpu-inference-api:v1.0.0
         command: ["/bin/bash", "-c"]
         args:
         - |
