@@ -16,7 +16,9 @@ spec:
     metadata:
       labels:
         app: gpu-inference-api
-    spec:
+    spec: 
+      imagePullSecrets:
+      - name: ghcr-secret
       nodeSelector:
         kubernetes.io/hostname: mlops-labs-worker2
       containers:
